@@ -3,7 +3,6 @@ Rickshaw.namespace('Rickshaw.Graph.Axis.Y');
 Rickshaw.Graph.Axis.Y = Rickshaw.Class.create( {
 
 	initialize: function(args) {
-
 		this.graph = args.graph;
 		this.orientation = args.orientation || 'right';
 
@@ -125,7 +124,7 @@ Rickshaw.Graph.Axis.Y = Rickshaw.Class.create( {
 
 		this.vis
 			.append("svg:g")
-			.attr("class", ["y_ticks", this.ticksTreatment].join(" "))
+			.attr("class", ["y_ticks", this.ticksTreatment, (this.orientation === "left" ? "y-axis-right" : "y-axis-left")].join(" "))
 			.attr("transform", transform)
 			.call(axis.ticks(this.ticks).tickSubdivide(0).tickSize(this.tickSize))
 			.call(breaker);
